@@ -1,5 +1,5 @@
 {
-  "name": "office-quote",
+  "name": "rickandmorty-character-gen",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import './App.css'
 
-function App() {
+export default function App() {
+  const [quotes, setQuotes] = useState('')
+
+  let getQuotes = () => {
+    let randomNumb = Math.floor(Math.random() * 20)
+    fetch("https://rickandmortyapi.com/api/character")
+      .then((res) => res.json())
+      .then((data) => setQuotes(data.results[randomNumb]))
+  }
+
+  const statusStyle = {
+    color: "white"
+  }
+
+  if(quotes.status === "Dead") {
+    statusStyle.color = "red"
+  } else if(quotes.status === "Alive") {
+    statusStyle.color = "#a4ca51"
+  }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="quotes-container">
+          <h1 className="quotes">{quotes.name}</h1>
+          {quotes.status ? 
+          <div className="character-info">
+            <p>status: <span style={statusStyle}>{quotes.status}</span></p>
+            <p>species: {quotes.species}</p>
+            <p>gender: {quotes.gender}</p>
+          </div> : <h1 className="quotes">Click the button below to generate a Rick and Morty character!</h1>}
+      </div>
+      <div className="get-quote">
+        <button className="btn" onClick={getQuotes}>Get Character</button>
+      </div>
     </div>
-  );
+  )
 }
-
-export default App;
