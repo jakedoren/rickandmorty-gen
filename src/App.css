@@ -55,3 +55,73 @@ body {
 .character-info {
   color: white;
 }
+
+@media only screen and (max-width: 1030px) {
+  .App {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    border-radius: 0 0 0 0;
+  }
+
+  .btn {
+    margin-top: 60px;
+  }
+}
+
+@media only screen and (max-width: 814px) {
+  .App {
+    width: 100vw;
+    height: 100vh;
+    margin-top: 0;
+    border-radius: 0 0 0 0;
+  }
+
+  .btn {
+    margin-top: 60px;
+  }
+}
+@media only screen and (max-width: 623px) {
+  .App {
+    width: 100vw;
+    height: 100vh;
+    margin-top: 0;
+    border-radius: 0 0 0 0;
+  }
+
+  .btn {
+    margin-top: 60px;
+  }
+}
+@media only screen and (max-width: 510px) {
+  .App {
+    width: 100vw;
+    height: 100vh;
+    margin-top: 0px;
+    border-radius: 0 0 0 0;
+  }
+
+  .btn {
+    margin-top: 60px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .App {
+    height: 100vh;
+    width: 100vw;
+    border-radius: 0 0 0 0;
+  }
+
+  .btn {
+    margin-top: 60px;
+  }
+  body {
+    background-color: #3d7abc;
+  }
+}
+@media only screen and (max-width: 390px) {
+  .App {
+    height: 100vh;
+    border-radius: 0 0 0 0;
+  }
+}
