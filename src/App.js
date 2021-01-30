@@ -31,7 +31,7 @@ export default function App() {
             <p>status: <span style={statusStyle}>{character.status}</span></p>
             <p>species: {character.species}</p>
             <p>gender: {character.gender}</p>
-          </div> : <h1 className="character">Click the button below to generate a Rick and Morty character!</h1>}
+          </div> : <h1 className="characters">Click the button below to generate a Rick and Morty character!</h1>}
       </div>
       <div className="get-character">
         <button className="btn" onClick={getCharacter}>Get Character</button>
