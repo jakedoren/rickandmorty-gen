@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
 import './App.css'
+import {FaRegSun} from 'react-icons/fa'
+import {FaRegMoon} from 'react-icons/fa'
+import {ThemeContextConsumer} from './context'
 
 export default function App() {
   const [character, setCharacter] = useState('')
@@ -23,19 +26,28 @@ export default function App() {
 
 
   return (
-    <div className="App">
-      <div className="character-container">
-          <h1 className="characters">{character.name}</h1>
-          {character.status ? 
-          <div className="character-info">
-            <p>status: <span style={statusStyle}>{character.status}</span></p>
-            <p>species: {character.species}</p>
-            <p>gender: {character.gender}</p>
-          </div> : <h1 className="characters">Click the button below to generate a Rick and Morty character!</h1>}
+    <ThemeContextConsumer>
+      {(context) => (
+        <div className="body" style={{backgroundColor: context.darkMode ? "#403f3f" : "#8edada" }}>
+          <div className="App" style={{backgroundColor: context.darkMode ? "#6e6867" : "#3d7abc"}}>
+        <div className="character-container" style={{backgroundColor: context.darkMode ? "black" : "#1c2047"}}>
+            <h1 className="characters">{character.name}</h1>
+            {character.status ? 
+            <div className="character-info">
+              <p>status: <span style={statusStyle}>{character.status}</span></p>
+              <p>species: {character.species}</p>
+              <p>gender: {character.gender}</p>
+            </div> : <h1 className="characters">Click the button below to generate a Rick and Morty character!</h1>}
+        </div>
+        <div className="get-character" style={{backgroundColor: context.darkMode ? "#d1cac9" : "#a4ca51"}}>
+          <button className="btn" onClick={getCharacter}>Get Character</button>
+            <button className="btn" onClick={context.handleTheme}>{context.darkMode ? <FaRegSun /> : <FaRegMoon />}</button>
+        </div>
       </div>
-      <div className="get-character">
-        <button className="btn" onClick={getCharacter}>Get Character</button>
-      </div>
-    </div>
+        </div>
+        
+      )}
+    </ThemeContextConsumer>
+    
   )
 }
